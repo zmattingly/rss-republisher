@@ -15,13 +15,11 @@ import RSS from 'rss';
       throw new Error("config.json feed format invalid");
     }
 
-    const dir = `./${shortName}`;
-    let dataFilepath = `${dir}/${shortName}.json`;
-    let rssFilename = `./public/${shortName}.rss`;
+    let dataFilepath = `./data/${shortName}.json`;
+    let rssFilepath = `./public/${shortName}.rss`;
     let lastPostIndex = 0;
 
-    if (!existsSync(dir)) {
-      mkdirSync(dir, { recursive: true });
+    if (!existsSync(dataFilepath)) {
       writeFileSync(dataFilepath, JSON.stringify({ lastPostIndex }));
     } else {
       let data = JSON.parse(readFileSync(dataFilepath, 'utf8'))
@@ -29,7 +27,7 @@ import RSS from 'rss';
     }
 
     let compiledFeed;
-    if (existsSync(rssFilename)) {
+    if (existsSync(rssFilepath)) {
       const existingFeed = await parser.parseString(readFileSync(rssFilepath, 'utf8'));
       compiledFeed = new RSS({
         title: existingFeed.title,
