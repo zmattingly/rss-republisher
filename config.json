@@ -1,0 +1,9 @@
+{
+  "githubUsername": "YOUR USERNAME HERE",
+  "feeds": [
+    {
+      "shortName": "example",
+      "feedUrl": "https://example.com/feed.rss"
+    }
+  ]
+}
