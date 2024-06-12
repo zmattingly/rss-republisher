@@ -53,4 +53,4 @@ jobs:
         git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
         git add public config.json
         git commit -m 'Update RSS Feeds'
-        git push origin gh-pages
+        git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git gh-pages
