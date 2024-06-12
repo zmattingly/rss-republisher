@@ -3,7 +3,7 @@ name: Republish RSS Feed
 on:
   schedule:
     - cron: '0 0 * * *' # Job runs daily at Midnight
-  workflow_dispatch:
+  workflow_dispatch: # Allows manual triggering
 
 jobs:
   build:
@@ -11,31 +11,46 @@ jobs:
 
     steps:
     - name: Checkout config branch
-      uses: actions/checkout@v4
+      uses: actions/checkout@v2
       with:
         ref: config
 
-    - name: Switch to gh-pages branch
-      run: |
-        git fetch
-        git checkout -B gh-pages origin/gh-pages || git checkout -b gh-pages
-        git rebase config
+    - name: Display config.json from config branch
+      run: cat config.json
+
+    - name: Copy config.json to workspace
+      run: cp config.json $GITHUB_WORKSPACE/
+
+    - name: Checkout gh-pages branch
+      uses: actions/checkout@v2
+      with:
+        ref: gh-pages
+        path: gh-pages
+
+    - name: Move config.json to gh-pages
+      run: mv $GITHUB_WORKSPACE/config.json gh-pages/
+
+    - name: Display config.json in gh-pages branch
+      run: cat gh-pages/config.json
 
     - name: Set up Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v2
       with:
-        node-version: '21'
+        node-version: '16'
 
     - name: Install dependencies
+      working-directory: gh-pages
       run: npm install
 
     - name: Run the RSS republish script
+      working-directory: gh-pages
       run: node index.js
 
     - name: Commit and push changes
+      working-directory: gh-pages
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git add public config.json
+        git add public
         git commit -m 'Update RSS Feeds'
         git push origin gh-pages
