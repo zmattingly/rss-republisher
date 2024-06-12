@@ -4,6 +4,7 @@ Schedule and Republish an RSS Feeds via Github Pages &amp; Actions
 ## How to use this Repo
 * Fork it
 * Clone it down
+* Make sure under your repo Settings -> Actions -> General -> Workflow Permissions, 'Read and Write Permissions' are enabled!
 * Create a new branch called `gh-pages` and push it
 	* `git checkout -b gh-pages`
 	* `git push --set-upstream origin gh-pages`
