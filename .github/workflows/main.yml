@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Checkout config branch
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         ref: config
 
@@ -22,7 +22,7 @@ jobs:
       run: cp config.json $GITHUB_WORKSPACE/
 
     - name: Checkout gh-pages branch
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         ref: gh-pages
         path: gh-pages
@@ -34,7 +34,7 @@ jobs:
       run: cat gh-pages/config.json
 
     - name: Set up Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
         node-version: '16'
 
@@ -51,6 +51,6 @@ jobs:
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git add public
+        git add public config.json
         git commit -m 'Update RSS Feeds'
         git push origin gh-pages
