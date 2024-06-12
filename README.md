@@ -10,7 +10,7 @@ Schedule and Republish an RSS Feed via Github Pages &amp; Actions
 	* `git push --set-upstream origin gh-pages`
 * Create a new branch called `config`
 	* `git checkout -b config`
-* Modify `config.js` appropriately (should be self explanatory)
+* Modify `config.json` appropriately (should be self explanatory)
 * Commit and push the branch
 	* `git add config.json`
 	* `git commit -m "Modified config.json with my username and feed shortnames and urls`
