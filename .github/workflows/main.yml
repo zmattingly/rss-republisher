@@ -18,17 +18,14 @@ jobs:
     - name: Display config.json from config branch
       run: cat config.json
 
-    - name: Copy config.json to workspace
-      run: cp config.json $GITHUB_WORKSPACE/
-
     - name: Checkout gh-pages branch
       uses: actions/checkout@v4
       with:
         ref: gh-pages
         path: gh-pages
 
-    - name: Move config.json to gh-pages
-      run: mv $GITHUB_WORKSPACE/config.json gh-pages/
+    - name: Copy config.json to gh-pages
+      run: cp config.json gh-pages/config.json
 
     - name: Display config.json in gh-pages branch
       run: cat gh-pages/config.json
