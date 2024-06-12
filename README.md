@@ -1,5 +1,5 @@
 # rss-republisher
-Schedule and Republish an RSS Feeds via Github Pages &amp; Actions
+Schedule and Republish an RSS Feed via Github Pages &amp; Actions
 
 ## How to use this Repo
 * Fork it
