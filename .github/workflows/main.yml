@@ -3,6 +3,7 @@ name: Republish RSS Feed
 on:
   schedule:
     - cron: '0 0 * * *' # Job runs daily at Midnight
+  workflow_dispatch:
 
 jobs:
   build:
