@@ -1,9 +1,9 @@
 {
-  "githubUsername": "YOUR USERNAME HERE",
+  "githubUsername": "zmattingly",
   "feeds": [
     {
-      "shortName": "example",
-      "feedUrl": "https://example.com/feed.rss"
+      "shortName": "verge",
+      "feedUrl": "https://theverge.com/rss/reviews/index.xml"
     }
   ]
 }
