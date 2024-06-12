@@ -14,6 +14,9 @@ jobs:
       with:
         ref: config
 
+    - name: Display config.json from config branch
+      run: cat config.json
+
     - name: Copy config.json to workspace
       run: cp config.json $GITHUB_WORKSPACE/
 
@@ -25,6 +28,9 @@ jobs:
 
     - name: Move config.json to gh-pages
       run: mv $GITHUB_WORKSPACE/config.json gh-pages/
+
+    - name: Display config.json in gh-pages branch
+      run: cat gh-pages/config.json
 
     - name: Set up Node.js
       uses: actions/setup-node@v2
