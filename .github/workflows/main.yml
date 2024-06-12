@@ -52,4 +52,4 @@ jobs:
         git config user.email github-actions@github.com
         git add public config.json
         git commit -m 'Update RSS Feeds'
-        git push gh-pages
+        git push
