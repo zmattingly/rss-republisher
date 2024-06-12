@@ -18,7 +18,7 @@ import RSS from 'rss';
     }
 
     let dataFilepath = `./data/${shortName}.json`;
-    let rssFilepath = `./public/${shortName}.rss`;
+    let rssFilepath = `./docs/${shortName}.rss`;
     let lastPostIndex = 0;
 
     if (!existsSync(dataFilepath)) {
@@ -87,5 +87,5 @@ import RSS from 'rss';
     </html>
   `;
 
-  writeFileSync('./public/index.html', indexHtml)
+  writeFileSync('./docs/index.html', indexHtml)
 })();

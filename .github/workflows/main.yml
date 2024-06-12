@@ -50,6 +50,6 @@ jobs:
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
-        git add public config.json
+        git add docs config.json
         git commit -m 'Update RSS Feeds'
         git push
