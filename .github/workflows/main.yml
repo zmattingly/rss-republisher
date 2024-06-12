@@ -9,6 +9,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Checkout config branch
+      uses: actions/checkout@v4
+      with:
+        ref: config
+
     - name: Switch to gh-pages branch
       run: |
         git fetch

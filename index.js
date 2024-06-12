@@ -11,6 +11,8 @@ import RSS from 'rss';
 
   for (let feed of config.feeds) {
     const { shortName, feedUrl } = feed;
+    console.log('shortName:', shortName);
+    console.log('feedUrl', feedUrl);
     if (!shortName || !feedUrl) {
       throw new Error("config.json feed format invalid");
     }
